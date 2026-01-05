@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Character Customizer — May the Fourth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="character-customizer.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="nav-bar">
+    <div class="container">
+      <a href="may-the-fourth.html" class="back">← Back to May the Fourth</a>
+      <h1>Character Customizer</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="characterCreator" class="character-creator">
+      <!-- Character Creation Form -->
+      <section class="creation-panel">
+        <h2>Create Your Character</h2>
+        
+        <div class="form-group">
+          <label for="charName">Character Name</label>
+          <input type="text" id="charName" placeholder="Enter your character name">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="charGender">Gender</label>
+            <select id="charGender">
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="non-binary">Non-Binary</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="charAge">Age</label>
+            <input type="number" id="charAge" placeholder="Enter age" min="8" max="120">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="charRace">Species</label>
+          <select id="charRace">
+            <option value="">Select Species</option>
+            <option value="human">Human</option>
+            <option value="twilek">Twi'lek</option>
+            <option value="moncalamari">Mon Calamari</option>
+            <option value="wookiee">Wookiee</option>
+            <option value="rodian">Rodian</option>
+            <option value="gungan">Gungan</option>
+            <option value="bothan">Bothan</option>
+            <option value="chiss">Chiss</option>
+            <option value="zabrak">Zabrak</option>
+            <option value="nautolan">Nautolan</option>
+            <option value="togruta">Togruta</option>
+            <option value="miraluka">Miraluka</option>
+            <option value="kel-dor">Kel-Dor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="charPlanet">Homeworld</label>
+          <select id="charPlanet">
+            <option value="">Select Homeworld</option>
+            <option value="coruscant">Coruscant</option>
+            <option value="tatooine">Tatooine</option>
+            <option value="naboo">Naboo</option>
+            <option value="kashyyyk">Kashyyyk</option>
+            <option value="mustafar">Mustafar</option>
+            <option value="geonosis">Geonosis</option>
+            <option value="hoth">Hoth</option>
+            <option value="bespin">Bespin</option>
+            <option value="kessel">Kessel</option>
+            <option value="dathomir">Dathomir</option>
+            <option value="ilum">Ilum</option>
+            <option value="korriban">Korriban</option>
+            <option value="exegol">Exegol</option>
+            <option value="jakku">Jakku</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Choose Your Faction</label>
+          <div class="faction-selector">
+            <button id="jediBtn" class="faction-btn jedi-btn" data-faction="jedi">
+              <span class="faction-icon">⚡</span>
+              <span>JEDI ORDER</span>
+            </button>
+            <button id="sithBtn" class="faction-btn sith-btn" data-faction="sith">
+              <span class="faction-icon">🔥</span>
+              <span>SITH EMPIRE</span>
+            </button>
+          </div>
+          <input type="hidden" id="charFaction" value="">
+        </div>
+
+        <button id="createCharBtn" class="create-btn">Create Character</button>
+      </section>
+    </div>
+
+    <div id="characterProfile" class="character-profile hidden">
+      <!-- Character Profile Display -->
+      <section class="profile-panel">
+        <div class="profile-header">
+          <h2 id="profileName"></h2>
+          <p id="profileRank" class="rank-badge"></p>
+        </div>
+
+        <div class="profile-info">
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="label">Species:</span>
+              <span id="profileSpecies"></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Gender:</span>
+              <span id="profileGender"></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Age:</span>
+              <span id="profileAge"></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Homeworld:</span>
+              <span id="profilePlanet"></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Faction:</span>
+              <span id="profileFaction"></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Experience:</span>
+              <span id="profileExp"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rank-progress">
+          <h3>Rank Progress</h3>
+          <div class="rank-bar">
+            <div id="expBar" class="exp-bar"></div>
+          </div>
+          <p id="expText"></p>
+        </div>
+
+        <button id="editCharBtn" class="edit-btn">Edit Character</button>
+      </section>
+
+      <!-- Quests Section -->
+      <section class="quests-panel">
+        <h2>Path to Power</h2>
+        <p class="section-subtitle">Complete quests to advance your rank and master the Force</p>
+        
+        <div id="questsList" class="quests-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2024 Star Wars May the Fourth Celebration</p>
+  </footer>
+
+  <script src="character-customizer.js"></script>
+</body>
+</html>

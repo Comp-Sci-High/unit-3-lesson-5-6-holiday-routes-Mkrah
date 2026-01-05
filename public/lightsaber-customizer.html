@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lightsaber Customizer — May the Fourth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lightsaber-customizer.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="nav-bar">
+    <div class="container">
+      <a href="may-the-fourth.html" class="back">← Back to May the Fourth</a>
+      <h1>Lightsaber Customizer</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="customizer-wrapper">
+      <!-- Preview Section -->
+      <section class="preview-section">
+        <h2>Your Saber</h2>
+        <div class="saber-preview" id="saberPreview">
+          <svg width="200" height="400" viewBox="0 0 200 400" class="saber-svg">
+            <!-- Hilt -->
+            <g id="hilt" class="hilt-style-classic">
+              <rect x="75" y="320" width="50" height="70" fill="#8b7355" rx="4"/>
+              <rect x="70" y="315" width="60" height="8" fill="#c0a080" rx="2"/>
+              <circle cx="100" cy="310" r="12" fill="#b8860b"/>
+            </g>
+            <!-- Blade Base -->
+            <g id="bladeContainer">
+              <rect id="blade" x="85" y="50" width="30" height="270" rx="15" fill="url(#blueGradient)" filter="url(#glow)"/>
+            </g>
+          </svg>
+          <defs>
+            <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#00ffd5;stop-opacity:0.3" />
+              <stop offset="50%" style="stop-color:#6cf;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#00ffd5;stop-opacity:0.3" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+        </div>
+        <p class="saber-info" id="saberInfo">Single Blade • Blue Crystal • Classic Hilt</p>
+      </section>
+
+      <!-- Customization Panel -->
+      <section class="controls-section">
+        <!-- Lightsaber Type -->
+        <div class="control-group">
+          <h3>Saber Type</h3>
+          <div class="button-grid">
+            <button class="type-btn active" data-type="single">Single</button>
+            <button class="type-btn" data-type="saberstaff">Saberstaff</button>
+            <button class="type-btn" data-type="pike">Pike</button>
+            <button class="type-btn" data-type="dualwield">Dual Wield</button>
+            <button class="type-btn" data-type="shoto">Shoto</button>
+            <button class="type-btn" data-type="crossguard">Crossguard</button>
+            <button class="type-btn" data-type="lightwhip">Lightwhip</button>
+          </div>
+        </div>
+
+        <!-- Crystal Color -->
+        <div class="control-group">
+          <h3>Crystal Color</h3>
+          <div class="color-grid">
+            <button class="color-btn" data-color="blue" style="background:#6cf" title="Blue"></button>
+            <button class="color-btn" data-color="red" style="background:#ff3366" title="Red"></button>
+            <button class="color-btn" data-color="green" style="background:#00ff88" title="Green"></button>
+            <button class="color-btn" data-color="purple" style="background:#dd77ff" title="Purple"></button>
+            <button class="color-btn" data-color="cyan" style="background:#00ffff" title="Cyan"></button>
+            <button class="color-btn" data-color="yellow" style="background:#ffff00" title="Yellow"></button>
+            <button class="color-btn" data-color="orange" style="background:#ff9900" title="Orange"></button>
+            <button class="color-btn" data-color="white" style="background:#ffffff" title="White"></button>
+          </div>
+        </div>
+
+        <!-- Hilt Design -->
+        <div class="control-group">
+          <h3>Hilt Design</h3>
+          <div class="button-grid">
+            <button class="hilt-btn active" data-hilt="classic">Classic</button>
+            <button class="hilt-btn" data-hilt="sleek">Sleek</button>
+            <button class="hilt-btn" data-hilt="ornate">Ornate</button>
+            <button class="hilt-btn" data-hilt="rugged">Rugged</button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-box">
+          <h4>Your Configuration</h4>
+          <p id="configSummary">Single Blade • Blue Crystal • Classic Hilt</p>
+        </div>
+
+        <!-- Action Button -->
+        <button class="save-btn" id="saveBtn">Save My Saber</button>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 May the Fourth • Forge your destiny</p>
+    </div>
+  </footer>
+
+  <script src="lightsaber-customizer.js"></script>
+</body>
+</html>
